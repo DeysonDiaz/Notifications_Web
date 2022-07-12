@@ -14,7 +14,6 @@ import com.system.danp.service.PushNotificationService;
 @RestController
 public class PushNotificationController {
 	
-	
     private PushNotificationService pushNotificationService;
     
     public PushNotificationController(PushNotificationService pushNotificationService) {
@@ -24,7 +23,6 @@ public class PushNotificationController {
     @PostMapping("/notification/token")
     public ResponseEntity<?> sendTokenNotification(@RequestBody PushNotificationRequest request) {
         pushNotificationService.sendPushNotificationToToken(request);
-        System.out.println("princr");
         return new ResponseEntity<>(new PushNotificationResponse(HttpStatus.OK.value(), "Notification has been sent."), HttpStatus.OK);
     }
     
